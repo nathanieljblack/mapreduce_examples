@@ -26,4 +26,45 @@ for line in sys.stdin:
 		word = ''.join(ch for ch in word.lower() if ch not in punc)
 		if word != '':
 			sys.stdout.write(word + "\t" + "1" + "\n")
+```  
+  
+The resulting output will look like this:  
+  
 ```
+a	1
+a	1
+a	1
+a	1
+b	1
+b	1
+b	1
+c	1
+c	1
+```  
+
+##reducer.py  
+  
+The reducer code is a little more complicated but only slightly. The code keeps track of three main pieces of information: the key, the prior key, and the running total of the word count.  A function ```emit()``` is defined to output the word count for a given key to STDOUT.
+  
+```
+import sys
+
+prev_key = None
+wrd_cnt = 0
+
+def emit(key , wrd_cnt):
+	sys.stdout.write(key + "\t" + str(wrd_cnt) + "\n")
+
+for line in sys.stdin:
+ 	item = line.split()
+ 	key = item[0]
+  	cnt = item[1]
+ 	if key != prev_key and prev_key is not None:
+ 		emit(prev_key, wrd_cnt)
+ 		wrd_cnt = 0
+ 	
+ 	wrd_cnt += float(cnt)
+	prev_key = key
+
+emit(key, wrd_cnt)
+```  
