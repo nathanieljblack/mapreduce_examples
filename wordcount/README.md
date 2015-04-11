@@ -82,3 +82,20 @@ The code is written in table form below to outline how the algorithm works. As y
 | c   | 1           | b         | 1         | emit(b, 3)   |
 | c   | 1           | c         | 2         | emit(c, 2)   |  
   
+##Run the code  
+The code can be run locally on the Unix/Linux command line using the following command:  
+```
+$ ./mapper.py < simple_example.txt | ./reducer.py 
+```  
+Note you may have to change the user permissions for mapper.py and reducer.py to run them as executables. This can be done with a line similar to this:  
+```
+$ chmod +x mapper.py
+```  
+
+The resulting output will be:
+```
+a	4.0
+b	3.0
+c	2.0
+```  
+
