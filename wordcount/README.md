@@ -70,17 +70,17 @@ emit(key, wrd_cnt)
 ```  
 The code is written in table form below to outline how the algorithm works. As you travel down the table, you can see how an action is triggered when the current key does not match the prior key (i.e. because the keys are sorted, the code can keep a running word count total for each key).
 
-| Key | Input Count | Prior Key | WordCount | Action       | 
-| ----|-------------| --------- |-----------|--------------|
-| a   | 1           | None      | 1         | None         |
-| a   | 1           | a         | 2         | None         |
-| a   | 1           | a         | 3         | None         |
-| a   | 1           | a         | 4         | None         |
-| b   | 1           | a         | 1         | emit(a, 4)   |
-| b   | 1           | b         | 2         | None         |
-| b   | 1           | b         | 3         | None         |
-| c   | 1           | b         | 1         | emit(b, 3)   |
-| c   | 1           | c         | 2         | emit(c, 2)   |  
+|Step | Key | Input Count | Prior Key | WordCount | Action       | 
+|-----|-----|-------------| --------- |-----------|--------------|
+|1    | a   | 1           | None      | 1         | None         |
+|2    | a   | 1           | a         | 2         | None         |
+|3    | a   | 1           | a         | 3         | None         |
+|4    | a   | 1           | a         | 4         | None         |
+|5    | b   | 1           | a         | 1         | emit(a, 4)   |
+|6    | b   | 1           | b         | 2         | None         |
+|7    | b   | 1           | b         | 3         | None         |
+|8    | c   | 1           | b         | 1         | emit(b, 3)   |
+|9    | c   | 1           | c         | 2         | emit(c, 2)   |  
   
 ##Run the code  
 The code can be run locally on the Unix/Linux command line using the following command:  
@@ -98,6 +98,8 @@ a	4.0
 b	3.0
 c	2.0
 ```  
+##Why is this useful?  
+You might be wondering what the point of this is? Well, what if you could use this same theory but have different computers running each subprocess? By thoughtfully mapping, sorting, and reducing, you could break up a large computational problem across many CPUs. The CPUs don't even have to be top of the line. That is the idea behind MapReduce and Hadoop...sometimes an army of morons is a better equipped for a problem than the smartest individual.  
 
 ##A (slightly) More Interesting Example  
 We can run the code on a larger body of text.  The text file ```constitution.txt``` contains the U.S. Constitution. It looks like this...  
@@ -109,4 +111,19 @@ ourselves and our Posterity, do ordain and establish this Constitution for the
 United States of America...
 ```  
 
-We can run ```mapper.py`` as we did before but we will need to add an additional step to the pipeline prior to the running the reducer.
+We can run ``mapper.py`` as we did before but we will need to add an additional step to the pipeline prior to the running the reducer. The command will look like this...
+
+```
+$ ./mapper.py < constitution.txt | sort | ./reducer.py
+```  
+The tail of the resulting output will look like this...
+
+```
+writings	1.0
+writs	2.0
+written	6.0
+year	11.0
+years	22.0
+yeas	2.0
+york	2.0
+```
