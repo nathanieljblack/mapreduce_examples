@@ -132,5 +132,5 @@ If we pipe the reducer results to the ``word_plot.py`` script, we can see a basi
 
 ![alt text](https://github.com/nathanieljblack/mapreduce_examples/blob/master/wordcount/figure_1.png "Top Words")  
 
-That is my basic MapReduce explanation. Let me know if you have questions or find issues.
+That is the basic idea behind MapReduce. Let me know if you have questions or find issues.
 
