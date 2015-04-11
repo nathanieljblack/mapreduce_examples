@@ -103,13 +103,13 @@ You might be wondering what the point of this is? Well, what if you could use th
 
 ##A (slightly) More Interesting Example  
 We can run the code on a larger body of text.  The text file ```constitution.txt``` contains the U.S. Constitution. It looks like this...  
-```
-We the People of the United States, in Order to form a more perfect Union,
-establish Justice, insure domestic Tranquility, provide for the common
-defence, promote the general Welfare, and secure the Blessings of Liberty to
-ourselves and our Posterity, do ordain and establish this Constitution for the
-United States of America...
-```  
+
+>We the People of the United States, in Order to form a more perfect Union,
+>establish Justice, insure domestic Tranquility, provide for the common
+>defence, promote the general Welfare, and secure the Blessings of Liberty to
+>ourselves and our Posterity, do ordain and establish this Constitution for the
+>United States of America...
+  
 
 We can run ``mapper.py`` as we did before but we will need to add an additional step to the pipeline prior to the running the reducer. The command will look like this...
 
@@ -126,4 +126,11 @@ year	11.0
 years	22.0
 yeas	2.0
 york	2.0
-```
+```  
+
+If we pipe the reducer results to the ``word_plot.py`` script, we can see a basic chart of the top words in the U.S. Constitution. If this were a true text analysis, we would pull out the stopwords (e.g. a, the, is, etc.).
+
+![alt text](https://github.com/nathanieljblack/mapreduce_examples/blob/master/wordcount/figure_1.png "Top Words")  
+
+That is my basic MapReduce explanation. Let me know if you have questions or find issues.
+
