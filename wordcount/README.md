@@ -4,7 +4,7 @@ This is the most common MapReduce example across the internet. It takes a corpus
 
 ##Simple Example  
 
-The simple_example.txt file has one line of text: the letters "a", "b", and "c".  
+The ``simple_example.txt`` file has one line of text: the letters "a", "b", and "c".  
   
 It looks like this:
 ```  
@@ -87,7 +87,7 @@ The code can be run locally on the Unix/Linux command line using the following c
 ```
 $ ./mapper.py < simple_example.txt | ./reducer.py 
 ```  
-Note you may have to change the user permissions for mapper.py and reducer.py to run them as executables. This can be done with a line similar to this:  
+Note you may have to change the user permissions for ``mapper.py`` and ``reducer.py`` to run them as executables. This can be done with a line similar to this:  
 ```
 $ chmod +x mapper.py
 ```  
@@ -103,7 +103,8 @@ You might be wondering what the point of this is? Well, what if you could use th
 
 ##A (slightly) More Interesting Example  
 We can run the code on a larger body of text.  The text file ```constitution.txt``` contains the U.S. Constitution. It looks like this...  
-
+  
+  
 >We the People of the United States, in Order to form a more perfect Union,
 >establish Justice, insure domestic Tranquility, provide for the common
 >defence, promote the general Welfare, and secure the Blessings of Liberty to
