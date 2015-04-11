@@ -68,3 +68,17 @@ for line in sys.stdin:
 
 emit(key, wrd_cnt)
 ```  
+The code is written in table form below to outline how the algorithm works. As you travel down the table, you can see how an action is triggered when the current key does not match the prior key (i.e. because the keys are sorted, the code can keep a running word count total for each key).
+
+| Key | Input Count | Prior Key | WordCount | Action       | 
+| ----|-------------| --------- |-----------|--------------|
+| a   | 1           | None      | 1         | None         |
+| a   | 1           | a         | 2         | None         |
+| a   | 1           | a         | 3         | None         |
+| a   | 1           | a         | 4         | None         |
+| b   | 1           | a         | 1         | emit(a, 4)   |
+| b   | 1           | b         | 2         | None         |
+| b   | 1           | b         | 3         | None         |
+| c   | 1           | b         | 1         | emit(b, 3)   |
+| c   | 1           | c         | 2         | emit(c, 2)   |  
+  
