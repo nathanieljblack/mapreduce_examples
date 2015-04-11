@@ -99,7 +99,7 @@ b	3.0
 c	2.0
 ```  
 ##Why is this useful?  
-You might be wondering what the point of this is? Well, what if you could use this same theory but have different computers running each subprocess? By thoughtfully mapping, sorting, and reducing, you could break up a large computational problem across many CPUs. The CPUs don't even have to be top of the line. That is the idea behind MapReduce and Hadoop...sometimes an army of morons is a better equipped for a problem than the smartest individual.  
+You might be wondering what the point of this is? Well, what if you could use this same theory but have different computers running each subprocess? By thoughtfully mapping, sorting, and reducing, you could break up a large computational problem across many CPUs. The CPUs don't even have to be top of the line- you just need to break the problem up into smaller problems that a medium-grade computer can handle. That is the idea behind MapReduce and Hadoop...sometimes an army of morons is a better equipped for a problem than any one smart individual.  
 
 ##A (slightly) More Interesting Example  
 We can run the code on a larger body of text.  The text file ```constitution.txt``` contains the U.S. Constitution. It looks like this...  
