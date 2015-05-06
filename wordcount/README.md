@@ -14,7 +14,7 @@ a a a a b b b c c
 ##mapper.py  
 The mapper code is relatively straight-forward: it uses receives each line from STDIN, splits each line into words, strips the words of punctuation, and outputs a tab-separated output to STDOUT with each word and the number "1".  
   
-```
+```python
 import sys
 import string
 
@@ -46,7 +46,7 @@ c	1
   
 The reducer code is a little more complicated but only slightly. The code keeps track of three main pieces of information: the key, the prior key, and the running total of the word count.  A function ```emit()``` is defined to output the word count for a given key to STDOUT.
   
-```
+```python
 import sys
 
 prev_key = None
